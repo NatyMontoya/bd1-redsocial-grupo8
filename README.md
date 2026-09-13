@@ -4,10 +4,9 @@
 **Modelo Entidad–Relación de la Red Social Pascualina**
 
 ## Integrantes
-- Integrante 1
-- Integrante 2
-- Integrante 3
-- Integrante 4
+- Natalia Montoya Echavarría
+- Darwin Esteban Palacio Durán
+
 
 ## Breve descripción del caso
 La Red Social Pascualina es una propuesta de plataforma para mejorar la comunicación y la interacción entre estudiantes. Permitirá crear perfiles, compartir intereses y habilidades, conectar con compañeros, establecer mentorías, publicar actualizaciones, comentar y reaccionar a contenidos, crear y pertenecer a grupos y programar eventos académicos o sociales.
