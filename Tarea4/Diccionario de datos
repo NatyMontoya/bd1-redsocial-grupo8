@@ -1,0 +1,88 @@
+# Red Social Estudiantil Pascualina — Tarea 4
+
+## 1. Información general
+
+- **Proyecto:** Red Social Estudiantil Pascualina
+- **Asignatura:** Bases de Datos I
+- **Integrantes:**
+  - Natalia Montoya
+  - Darwin Esteban Palacio
+- **Docente:** Oralia Cortes Grajales
+
+
+## 2. Descripción del proyecto
+
+La Red Social Estudiantil Pascualina es una propuesta de aplicación que busca facilitar la interacción entre estudiantes, promover el intercambio de conocimientos y permitir la publicación de contenidos y comentarios dentro de la comunidad educativa.
+
+En esta cuarta tarea se trabaja en la comparación e implementación de la estructura de la base de datos utilizando tres sistemas gestores de bases de datos, con el propósito de reconocer las particularidades de sus lenguajes de definición de datos (DDL).
+
+## 3. Objetivo
+
+Desarrollar y comparar propuestas de implementación de la base de datos del proyecto en tres SGBD, identificando las diferencias en sus instrucciones DDL, tipos de datos, restricciones de integridad y mecanismos para definir las relaciones entre las tablas.
+
+## 4. Sistemas gestores de bases de datos seleccionados
+
+1. **PostgreSQL:** sistema gestor utilizado para implementar y probar la estructura de la base de datos mediante pgAdmin 4.
+2. **MySQL:** sistema gestor relacional cuya implementación puede administrarse mediante MySQL Workbench.
+3. **Microsoft SQL Server:** sistema gestor relacional incluido para ampliar la comparación de las instrucciones DDL y sus características.
+
+## 5. Modelo de datos
+
+Se conserva el modelo de cuatro tablas definido en las tareas anteriores, sin agregar entidades nuevas.
+
+Las tablas y sus responsabilidades se documentan de acuerdo con el script SQL definitivo del proyecto. Las claves primarias (PK), claves foráneas (FK), restricciones y relaciones deben conservar la lógica del modelo original y adaptarse a la sintaxis de cada SGBD.
+
+
+## 6. Contenido de la entrega
+
+### 6.1. Diccionario de datos genérico
+
+Describe las cuatro tablas del modelo lógico, sus atributos, los tipos de datos conceptuales, las claves y las relaciones, independientemente del SGBD utilizado.
+
+### 6.2. Diccionarios de datos físicos
+
+Incluyen la adaptación del diccionario genérico a cada sistema gestor:
+
+- PostgreSQL.
+- MySQL.
+- Microsoft SQL Server.
+
+Se especifican los tipos de datos físicos, las claves primarias y foráneas, las restricciones y las particularidades de cada implementación.
+
+### 6.3. Scripts DDL
+
+Contienen las sentencias SQL necesarias para crear las cuatro tablas y establecer sus relaciones en cada SGBD seleccionado.
+
+Los scripts deben mantener la coherencia con el modelo lógico y permitir comprobar la creación de las estructuras y la integridad referencial.
+
+### 6.4. Informe técnico
+
+Documenta el proceso de implementación, la justificación de los tipos de datos, las restricciones, las relaciones, las diferencias encontradas entre los tres SGBD y las conclusiones del equipo.
+
+
+## 7. Metodología de trabajo
+
+1. Revisar el modelo lógico elaborado en las tareas anteriores.
+2. Elaborar el diccionario de datos genérico.
+3. Adaptar el modelo a los tres SGBD seleccionados.
+4. Elaborar los diccionarios físicos y los scripts DDL correspondientes.
+5. Comparar las diferencias entre las implementaciones.
+6. Documentar los resultados en el informe técnico.
+7. Preparar la sustentación en video y organizar las evidencias en GitHub.
+
+## 8. Resultados esperados
+
+Se espera obtener tres propuestas de implementación de una misma base de datos, con sus respectivos diccionarios físicos y scripts DDL, junto con un análisis comparativo que permita comprender las particularidades de cada sistema gestor.
+
+## 9. Conclusión
+
+El desarrollo de esta actividad permite fortalecer los conocimientos sobre bases de datos relacionales y lenguaje SQL, así como comprender que un mismo modelo lógico puede implementarse en diferentes SGBD mediante ajustes en los tipos de datos, las restricciones y la sintaxis de sus instrucciones DDL.
+
+La comparación facilita identificar las características de cada sistema y la importancia de mantener la integridad y coherencia de la información.
+
+## 10. Integrantes
+
+**Natalia Montoya**  
+**Darwin Esteban Palacio**
+
+Asignatura: Bases de Datos I
