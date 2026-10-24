@@ -1,0 +1,62 @@
+# Red Social Estudiantil Pascualina — Tarea 3
+
+## 1. Información general
+
+- **Proyecto:** Red Social Estudiantil Pascualina
+- **Asignatura:** Análisis y Desarrollo de Software
+- **Integrantes:**
+  - Natalia Montoya
+  - Darwin Esteban Palacio
+- **Docente:** Oralia Cortes Grajales
+
+
+## 2. Descripción del proyecto
+
+La Red Social Estudiantil Pascualina es una propuesta de aplicación orientada a facilitar la interacción entre estudiantes, permitiendo compartir publicaciones, realizar comentarios y fortalecer la comunicación dentro de la comunidad educativa.
+
+En esta tercera tarea se desarrolla la implementación de la base de datos mediante el lenguaje de definición de datos (DDL) en PostgreSQL, tomando como referencia el modelo lógico trabajado anteriormente.
+
+## 3. Objetivo de la tarea
+
+Implementar la estructura de la base de datos del proyecto mediante sentencias SQL DDL, definiendo las tablas, los tipos de datos, las claves primarias, las claves foráneas y las restricciones necesarias para mantener la integridad de la información.
+
+## 4. Herramientas utilizadas
+
+- **Sistema gestor de bases de datos:** PostgreSQL.
+- **Herramienta de administración:** pgAdmin 4.
+- **Lenguaje:** SQL (DDL).
+- **Repositorio:** GitHub.
+
+## 5. Estructura de la base de datos
+
+La implementación de la Tarea 3 conserva las cuatro tablas definidas para esta entrega:
+
+1. **estudiante:** almacena la información básica de los estudiantes.
+2. **perfil:** contiene la información complementaria del perfil estudiantil.
+3. **publicacion:** registra las publicaciones realizadas por los estudiantes.
+4. **comentario:** almacena los comentarios asociados a las publicaciones.
+
+Las relaciones entre las tablas se establecen mediante claves primarias (PK) y claves foráneas (FK), según el diseño implementado en el script SQL.
+
+## 6. Contenido de la entrega
+
+Esta carpeta contiene los documentos y evidencias correspondientes al desarrollo de la Tarea 3:
+
+- **Informe:** documento técnico con el diccionario de datos, la justificación de los tipos de datos, las claves primarias y foráneas, las restricciones de integridad y la explicación de las sentencias DDL.
+- **Script SQL:** instrucciones para crear las tablas y establecer sus relaciones en PostgreSQL.
+- **Evidencias:** capturas de pantalla de la implementación y de las pruebas de inserción de datos realizadas en pgAdmin 4.
+- **Conclusiones:** reflexiones individuales de los integrantes sobre el proceso de implementación de la base de datos.
+
+## 7. Integridad de los datos
+
+La base de datos utiliza claves primarias para identificar de forma única los registros y claves foráneas para relacionar la información entre las tablas. También se aplican las restricciones y acciones de actualización o eliminación definidas en el script, incluyendo `ON DELETE` y `ON UPDATE` cuando corresponda.
+
+## 8. Resultados esperados
+
+Al finalizar la tarea, se espera contar con una estructura de base de datos funcional en PostgreSQL, coherente con el modelo lógico del proyecto, que permita almacenar y relacionar la información de estudiantes, perfiles, publicaciones y comentarios.
+
+## 9. Autores
+
+**Natalia Montoya y Darwin Esteban Palacio**
+
+Proyecto académico desarrollado para la asignatura Análisis y Desarrollo de Software.
