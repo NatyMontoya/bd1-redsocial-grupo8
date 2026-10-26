@@ -1,0 +1,51 @@
+CREATE DATABASE IF NOT EXISTS red_social_pascualina;
+
+USE red_social_pascualina;
+
+CREATE TABLE estudiante (
+ id_estudiante INT AUTO_INCREMENT PRIMARY KEY,
+ documento VARCHAR(20) NOT NULL UNIQUE, nombres VARCHAR(100) NOT NULL,
+ apellidos VARCHAR(100) NOT NULL, correo VARCHAR(150) NOT NULL UNIQUE,
+ contrasena_hash VARCHAR(255) NOT NULL, programa_academico VARCHAR(120) NOT NULL,
+ semestre INT NOT NULL CHECK (semestre > 0),
+ fecha_registro DATE NOT NULL DEFAULT (CURRENT_DATE),
+ estado BOOLEAN NOT NULL DEFAULT TRUE
+) 
+
+
+CREATE TABLE perfil (
+    id_perfil INT AUTO_INCREMENT PRIMARY KEY,
+    id_estudiante INT NOT NULL UNIQUE,
+    biografia TEXT,
+    foto_perfil VARCHAR(500),
+    ciudad VARCHAR(100),
+    fecha_nacimiento DATE,
+    disponibilidad_mentoria BOOLEAN NOT NULL DEFAULT FALSE,
+    CONSTRAINT fk_perfil_estudiante
+        FOREIGN KEY (id_estudiante)
+        REFERENCES estudiante(id_estudiante)
+        ON DELETE CASCADE
+        ON UPDATE CASCADE
+);
+
+CREATE TABLE publicacion (
+ id_publicacion INT AUTO_INCREMENT PRIMARY KEY, id_estudiante INT NOT NULL,
+ contenido TEXT NOT NULL, tipo_publicacion VARCHAR(30) NOT NULL DEFAULT 'TEXTO',
+ fecha_publicacion TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+ estado BOOLEAN NOT NULL DEFAULT TRUE,
+ CONSTRAINT chk_publicacion_tipo CHECK (tipo_publicacion IN ('TEXTO','IMAGEN','ENLACE')),
+ CONSTRAINT fk_publicacion_estudiante FOREIGN KEY (id_estudiante) REFERENCES estudiante(id_estudiante)
+ ON DELETE CASCADE ON UPDATE CASCADE,
+ CONSTRAINT chk_publicacion_contenido CHECK (CHAR_LENGTH(TRIM(contenido)) > 0)
+)
+
+CREATE TABLE comentario (
+ id_comentario INT AUTO_INCREMENT PRIMARY KEY, id_publicacion INT NOT NULL,
+ id_estudiante INT NOT NULL, contenido VARCHAR(1000) NOT NULL,
+ fecha_comentario TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+ CONSTRAINT fk_comentario_publicacion FOREIGN KEY (id_publicacion) REFERENCES publicacion(id_publicacion)
+ ON DELETE CASCADE ON UPDATE CASCADE,
+ CONSTRAINT fk_comentario_estudiante FOREIGN KEY (id_estudiante) REFERENCES estudiante(id_estudiante)
+ ON DELETE CASCADE ON UPDATE CASCADE,
+ CONSTRAINT chk_comentario_contenido CHECK (CHAR_LENGTH(TRIM(contenido)) > 0)
+)
