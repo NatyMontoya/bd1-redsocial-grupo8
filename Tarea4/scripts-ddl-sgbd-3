@@ -1,0 +1,43 @@
+CREATE DATABASE red_social_pascualina;
+GO
+USE red_social_pascualina;
+GO
+CREATE TABLE estudiante (
+ id_estudiante INT IDENTITY(1,1) NOT NULL PRIMARY KEY,
+ documento NVARCHAR(20) NOT NULL UNIQUE, nombres NVARCHAR(100) NOT NULL,
+ apellidos NVARCHAR(100) NOT NULL, correo NVARCHAR(150) NOT NULL UNIQUE,
+ contrasena_hash VARCHAR(255) NOT NULL, programa_academico NVARCHAR(120) NOT NULL,
+ semestre INT NOT NULL CHECK (semestre > 0),
+ fecha_registro DATE NOT NULL DEFAULT (CONVERT(date,GETDATE())),
+ estado BIT NOT NULL DEFAULT (1)
+);
+CREATE TABLE perfil (
+ id_perfil INT IDENTITY(1,1) NOT NULL PRIMARY KEY, id_estudiante INT NOT NULL UNIQUE,
+ biografia NVARCHAR(MAX), foto_perfil NVARCHAR(500), ciudad NVARCHAR(100),
+ fecha_nacimiento DATE, disponibilidad_mentoria BIT NOT NULL DEFAULT (0),
+ CONSTRAINT fk_perfil_estudiante FOREIGN KEY (id_estudiante) REFERENCES estudiante(id_estudiante)
+ ON DELETE CASCADE ON UPDATE CASCADE,
+ CONSTRAINT chk_perfil_fecha_nacimiento CHECK (fecha_nacimiento IS NULL OR fecha_nacimiento <= CONVERT(date,GETDATE()))
+);
+GO
+CREATE TABLE publicacion (
+ id_publicacion INT IDENTITY(1,1) NOT NULL PRIMARY KEY, id_estudiante INT NOT NULL,
+ contenido NVARCHAR(MAX) NOT NULL, tipo_publicacion NVARCHAR(30) NOT NULL DEFAULT (N'TEXTO'),
+ fecha_publicacion DATETIME2 NOT NULL DEFAULT (SYSDATETIME()), estado BIT NOT NULL DEFAULT (1),
+ CONSTRAINT chk_publicacion_tipo CHECK (tipo_publicacion IN (N'TEXTO',N'IMAGEN',N'ENLACE')),
+ CONSTRAINT fk_publicacion_estudiante FOREIGN KEY (id_estudiante) REFERENCES estudiante(id_estudiante)
+ ON DELETE CASCADE ON UPDATE CASCADE,
+ CONSTRAINT chk_publicacion_contenido CHECK (LEN(LTRIM(RTRIM(contenido))) > 0)
+);
+GO
+CREATE TABLE comentario (
+ id_comentario INT IDENTITY(1,1) NOT NULL PRIMARY KEY, id_publicacion INT NOT NULL,
+ id_estudiante INT NOT NULL, contenido NVARCHAR(1000) NOT NULL,
+ fecha_comentario DATETIME2 NOT NULL DEFAULT (SYSDATETIME()),
+ CONSTRAINT fk_comentario_publicacion FOREIGN KEY (id_publicacion) REFERENCES publicacion(id_publicacion)
+ ON DELETE CASCADE ON UPDATE CASCADE,
+ CONSTRAINT fk_comentario_estudiante FOREIGN KEY (id_estudiante) REFERENCES estudiante(id_estudiante)
+ ON DELETE CASCADE ON UPDATE CASCADE,
+ CONSTRAINT chk_comentario_contenido CHECK (LEN(LTRIM(RTRIM(contenido))) > 0)
+);
+GO
